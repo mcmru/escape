@@ -9,7 +9,7 @@ def BerekenCodeopTablet():
 def oplossing1getassignment():
     solution = commons.getAPIresource(resource='rekensom')
     if solution.status_code:
-        return json.loads(solution)
+        return json.loads(solution.text)
     else:
         raise Exception("API not accessible")
 
