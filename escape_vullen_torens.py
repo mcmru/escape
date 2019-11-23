@@ -46,7 +46,7 @@ def vul_torens(oplossingboekenkast):
     response = commons.PostAPIresource(resource='torens',
                                        secretcodename='Oplossing1',
                                        secretcodesolution=oplossingboekenkast,
-                                       body=antwoord)
+                                       body=json.dumps(antwoord))
     if not response.status_code:
         raise Exception("torens post error")
     else:
