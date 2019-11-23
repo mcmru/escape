@@ -8,6 +8,7 @@ import escape_bellen_specialist as bellen
 def escape_totaal ():
     # Init het spel
     params={"gebruikersnaam":"Team%20triple%20R", "api-key":"4080cdbd-3888-41bc-8dc8-d450153d10f3"}
+
     commons.PostAPIresource(resource='hervat', body = "", params=params)
     # Bereken de code die op de tablet getoond wordt
     tabletcode = tablet.BerekenCodeopTablet()
