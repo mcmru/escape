@@ -39,7 +39,7 @@ def PostAPIresource(resource, body, params = None, secretcodename = None, secret
 
 def deleteAPIresource(resource, escapecode):
     # URL
-    url = baseURL + resource + "/" + escapecode
+    url = baseURL + resource + "/" + str(escapecode)
 
     # Headers
     headers = {"api-key": apikey}

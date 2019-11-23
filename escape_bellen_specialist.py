@@ -12,8 +12,9 @@ def bel_specialist(oplossingtorens):
                                       secretcodename="Oplossing2",
                                       secretcodesolution=oplossingtorens
                                       )
-        if response.status_code:
+        if response.status_code == 200:
             antwoord = json.loads(response.text)
-            return antwoord.get["escapecode"]
+            escapecode = antwoord["escapecode"]
+            return escapecode
 
 

@@ -6,6 +6,8 @@ import escape_vullen_torens as torens
 import escape_bellen_specialist as bellen
 
 def escape_totaal ():
+    # Init het spel
+
     # Bereken de code die op de tablet getoond wordt
     tabletcode = tablet.BerekenCodeopTablet()
     # Open met deze code de boekenkast
@@ -15,7 +17,8 @@ def escape_totaal ():
     # Bel nu de juiste specialist
     escapecode = bellen.bel_specialist(torencode)
     # En nu escapen door een delete aan te roepen
-    commons.deleteAPIresource("verwijderslot", escapecode)
+    resp = commons.deleteAPIresource("verwijderslot", escapecode)
+    print(f'Delete heeft geleid tot: ', resp.status_code, resp.text)
 
 
 
