@@ -8,7 +8,7 @@ def getAPIresource(resource, params = None, secretcodename = None, secretcodesol
     url = baseURL + resource
 
     # Headers
-    headers = {"apikey": apikey}
+    headers = {"api-key": apikey}
     if secretcodename:
         headers[secretcodename] = secretcodesolution
 
@@ -23,7 +23,7 @@ def PostAPIresource(resource, body, params = None, secretcodename = None, secret
     url = baseURL + resource
 
     # Headers
-    headers = {"apikey": apikey}
+    headers = {"api-key": apikey}
     if secretcodename:
         headers[secretcodename] = secretcodesolution
 
@@ -40,7 +40,7 @@ def deleteAPIresource(resource, escapecode):
     url = baseURL + resource + "/" + escapecode
 
     # Headers
-    headers = {"apikey": apikey}
+    headers = {"api-key": apikey}
 
     # Send request
     response = requests.delete(url, headers=headers)
