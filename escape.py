@@ -19,6 +19,8 @@ def escape_totaal ():
 
 
 
+if __name__ == '__main__':
+    escape_totaal()
 
 
 

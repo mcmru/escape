@@ -3,13 +3,14 @@ import requests
 baseURL = "http://otagrnap357.duo.ota/"
 apikey = "4080cdbd-3888-41bc-8dc8-d450153d10f3"
 
-def getAPIresource(resource, params, secretcodename, secretcodesolution):
+def getAPIresource(resource, params = None, secretcodename = None, secretcodesolution = None):
     # URL
     url = baseURL + resource
 
     # Headers
     headers = {"apikey": apikey}
-    headers[secretcodename] = secretcodesolution
+    if secretcodename:
+        headers[secretcodename] = secretcodesolution
 
     # Send request
     response = requests.get(url,
@@ -17,13 +18,14 @@ def getAPIresource(resource, params, secretcodename, secretcodesolution):
                             headers=headers)
     return response
 
-def PostAPIresource(resource, params, secretcodename, secretcodesolution, body):
+def PostAPIresource(resource, body, params = None, secretcodename = None, secretcodesolution = None):
     # URL
     url = baseURL + resource
 
     # Headers
     headers = {"apikey": apikey}
-    headers[secretcodename] = secretcodesolution
+    if secretcodename:
+        headers[secretcodename] = secretcodesolution
 
     # Send request
 
