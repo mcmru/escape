@@ -20,16 +20,16 @@ def oplossing1ComputeEntryCode(opdracht):
     getal2 = opdracht.get("som").get("getal2")
 
     def optellen():
-        return getal1 + getal2
+        return str(getal1 + getal2)
 
     def delen():
-        return getal1 / getal2
+        return str(round(getal1 / getal2))
 
     def vermenigvuldigen():
-        return getal1 * getal2
+        return str(getal1 * getal2)
 
     def aftrekken():
-        return getal1 - getal2
+        return str(getal1 - getal2)
 
     operate = {"optellen": optellen, "delen": delen, "vermenigvuldigen": vermenigvuldigen, "aftrekken": aftrekken}
 
