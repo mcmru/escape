@@ -27,6 +27,8 @@ def PostAPIresource(resource, body, params = None, secretcodename = None, secret
     if secretcodename:
         headers[secretcodename] = secretcodesolution
 
+    headers['content-type'] = 'application/json'
+
     # Send request
 
     response = requests.post(url,
