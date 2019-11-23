@@ -8,7 +8,7 @@ torens = [ {"name": "akerk", "height": 76, "built": 1492 },
             {"name": "martini", "height": 97, "built": 1469 },
             {"name": "nieuwekerk", "height": 47, "built": 1660 },
             {"name": "stJozefkerk", "height": 75, "built": 1887 },
-            {"name": "academiegebouw", "height": 66, "built": 1909 },
+            {"name": "academieGebouw", "height": 66, "built": 1909 },
          ]
 
 def sortlist(opdracht):
