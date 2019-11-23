@@ -4,10 +4,10 @@ import commons
 # Kijken door de verrekijker levert de opdracht op. De torens moeten in de juiste volgorde gevuld worden
 
 # Inhoud van het boek:
-torens = [ {"name": "akerk", "height": 76, "built": 1492 },
+torens = [ {"name": "aKerk", "height": 76, "built": 1492 },
             {"name": "martini", "height": 97, "built": 1469 },
-            {"name": "nieuwekerk", "height": 47, "built": 1660 },
-            {"name": "stJozefkerk", "height": 75, "built": 1887 },
+            {"name": "nieuweKerk", "height": 47, "built": 1660 },
+            {"name": "stJozefKerk", "height": 75, "built": 1887 },
             {"name": "academieGebouw", "height": 66, "built": 1909 },
          ]
 
