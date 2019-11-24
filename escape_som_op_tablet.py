@@ -36,6 +36,7 @@ def oplossing1ComputeEntryCode(opdracht):
     # Welke functie moeten we uitvoeren
     for operator, active in opdracht.items():
         if active:
+            print("De entrycode voor de boekenkast is gekraakt")
             return (operate.get(operator)())
 
     return -1  # Geen opdracht gevonden

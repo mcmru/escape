@@ -10,6 +10,7 @@ def openboekenkast(cijfercode):
     if response.status_code:
         code = response.headers["Oplossing1"]
         if code:
+            print("De boekenkast is geopend!")
             return code
 
     raise Exception("API not accessible")

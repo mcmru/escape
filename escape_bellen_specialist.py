@@ -15,6 +15,7 @@ def bel_specialist(oplossingtorens):
         if response.status_code == 200:
             antwoord = json.loads(response.text)
             escapecode = antwoord["escapecode"]
+            print("Bellen specialist gelukt")
             return escapecode
 
 

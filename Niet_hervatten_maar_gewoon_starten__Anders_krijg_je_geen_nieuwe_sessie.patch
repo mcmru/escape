@@ -1,0 +1,18 @@
+Index: escape.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- escape.py	(revision de69b9c77d52bcf58fc8cc3560647c5327ac8313)
++++ escape.py	(date 1574618665602)
+@@ -7,8 +7,8 @@
+ 
+ def escape_totaal ():
+     # Init het spel
+-    params={"gebruikersnaam":"Team triple R", "api-key":"4080cdbd-3888-41bc-8dc8-d450153d10f3"}
+-    commons.PostAPIresource(resource='hervat', body="", params=params)
++    params={"gebruikersnaam":"Team triple R"}
++    commons.PostAPIresource(resource='start', body="", params=params)
+     # Bereken de code die op de tablet getoond wordt
+     tabletcode = tablet.BerekenCodeopTablet()
+     # Open met deze code de boekenkast

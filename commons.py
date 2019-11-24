@@ -1,10 +1,10 @@
 import requests
 
 baseURL = "http://otagrnap357.duo.ota/"
-apiKey = ""
+apiKey = "ddc3f655-79a4-4f7e-b5cf-031914db0eea"
 
-def setapiKey (key):
-    apiKey = key
+def getapiKey ():
+    return apiKey
 
 def getAPIresource(resource, params = None, secretcodename = None, secretcodesolution = None):
     # URL

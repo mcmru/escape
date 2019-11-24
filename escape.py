@@ -6,12 +6,11 @@ import escape_vullen_torens as torens
 import escape_bellen_specialist as bellen
 import escape_start as start
 
-teamnaam = "Triple R"
+teamnaam = "Team Triple R"
 
 def escape_totaal ():
     # Init het spel
     start.start_escape(teamnaam)
-
     # Bereken de code die op de tablet getoond wordt
     tabletcode = tablet.BerekenCodeopTablet()
     # Open met deze code de boekenkast

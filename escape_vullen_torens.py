@@ -21,7 +21,6 @@ def sortlist(opdracht):
         sortedList = sorted(torens, key=lambda i: i['height'],reverse = not is_ascending)
     if opdracht.get("bouwjaar"):
         sortedList = sorted(torens, key=lambda i: i['built'],reverse = not is_ascending)
-    print (sortedList)
     return sortedList
 
 def convert2antwoordstring(sortedList):
@@ -51,6 +50,7 @@ def vul_torens(oplossingboekenkast):
         raise Exception("torens post error")
     else:
         # De response header bevat de code van Oplossing2
+        print("Torens opgelost")
         return response.headers['Oplossing2']
 
 
