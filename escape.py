@@ -4,11 +4,14 @@ import escape_som_op_tablet as tablet
 import escape_open_boekenkast as bk
 import escape_vullen_torens as torens
 import escape_bellen_specialist as bellen
+import escape_start as start
+
+teamnaam = "Triple R"
 
 def escape_totaal ():
     # Init het spel
-    params={"gebruikersnaam":"Team triple R", "api-key":"4080cdbd-3888-41bc-8dc8-d450153d10f3"}
-    commons.PostAPIresource(resource='hervat', body="", params=params)
+    start.start_esacape(teamnaam)
+
     # Bereken de code die op de tablet getoond wordt
     tabletcode = tablet.BerekenCodeopTablet()
     # Open met deze code de boekenkast
