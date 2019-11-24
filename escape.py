@@ -10,7 +10,7 @@ teamnaam = "Triple R"
 
 def escape_totaal ():
     # Init het spel
-    start.start_esacape(teamnaam)
+    start.start_escape(teamnaam)
 
     # Bereken de code die op de tablet getoond wordt
     tabletcode = tablet.BerekenCodeopTablet()
