@@ -49,8 +49,8 @@ def vul_torens(oplossingboekenkast):
     if not response.status_code:
         raise Exception("torens post error")
     else:
-        # De response header bevat de code van Oplossing2
+        # De response header bevat de code van Oplossing2. Ook de response.text moet mee terug als dictionary
         print("Torens opgelost")
-        return response.headers['Oplossing2']
+        return response.headers['Oplossing2'], json.loads(response.text)
 
 

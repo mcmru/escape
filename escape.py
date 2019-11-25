@@ -16,9 +16,12 @@ def escape_totaal ():
     # Open met deze code de boekenkast
     bkcode = bk.openboekenkast(tabletcode)
     # Vul nu de torens op de juiste volgorde in
-    torencode = torens.vul_torens(bkcode)
+    torencode, toollijstTorens = torens.vul_torens(bkcode)
     # Bel nu de juiste specialist
-    escapecode = bellen.bel_specialist(torencode)
+    # Oude versie:
+    # escapecode = bellen.bel_specialist(torencode)
+    #Nieuwe versie heeft ook de response van de torens nodig
+    bellen.bel_specialistV2(bkcode, toollijstTorens)
     # En nu escapen door een delete aan te roepen
     resp = commons.deleteAPIresource("verwijderslot", escapecode)
     print(f'Delete heeft geleid tot: ', resp.status_code, resp.text)
