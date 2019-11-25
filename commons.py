@@ -19,6 +19,7 @@ def getAPIresource(resource, params = None, secretcodename = None, secretcodesol
     response = requests.get(url,
                             params=params,
                             headers=headers)
+    print("Get API op: ", resource, "met status: ", response.status_code)
     return response
 
 def PostAPIresource(resource, body, params = None, secretcodename = None, secretcodesolution = None):
@@ -38,6 +39,7 @@ def PostAPIresource(resource, body, params = None, secretcodename = None, secret
                              data=body,
                              params=params,
                              headers=headers)
+    print("Post API op: ", resource, "met status: ", response.status_code)
     return response
 
 def deleteAPIresource(resource, escapecode):
@@ -49,5 +51,6 @@ def deleteAPIresource(resource, escapecode):
 
     # Send request
     response = requests.delete(url, headers=headers)
+    print("Delete API op: ", resource, "met status: ", response.status_code)
     return response
 
