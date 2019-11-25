@@ -15,7 +15,7 @@ def bel_specialist(oplossingtorensCode):
         if response.status_code == 200:
             antwoord = json.loads(response.text)
             escapecode = antwoord["escapecode"]
-            print("Bellen specialist gelukt")
+            print(f"Bellen specialist gelukt op telnr: ", telnr, ". Escapecode = ", escapecode)
             return escapecode
 
 # Nieuwe poging: bel de specialist die NIET voorkomt op het antwoord bij de torens
@@ -32,7 +32,7 @@ def bel_specialistV2(oplossingtorensCode, toollijstTorens):
     specialistSet = set(taSpecialist.keys())
     toollijstSet = set(toollijstTorens.get("tools"))
     specialistToCall = specialistSet - toollijstSet
-    telnr = taSpecialist(specialistToCall)
+    telnr = taSpecialist.get(specialistToCall.pop())
 
     response = commons.getAPIresource(resource="toolondersteuning/belspecialist/" + telnr,
                                       secretcodename="Oplossing2",

@@ -21,12 +21,10 @@ def escape_totaal ():
     # Oude versie:
     # escapecode = bellen.bel_specialist(torencode)
     #Nieuwe versie heeft ook de response van de torens nodig
-    bellen.bel_specialistV2(bkcode, toollijstTorens)
+    escapecode = bellen.bel_specialistV2(torencode, toollijstTorens)
     # En nu escapen door een delete aan te roepen
     resp = commons.deleteAPIresource("verwijderslot", escapecode)
     print(f'Delete heeft geleid tot: ', resp.status_code, resp.text)
-
-
 
 if __name__ == '__main__':
     escape_totaal()
