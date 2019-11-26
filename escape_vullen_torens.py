@@ -16,7 +16,7 @@ def sortlist(opdracht):
     opdracht = opdracht.get("torens")
     is_ascending = opdracht.get("typeSortering") == "Oplopend"
     if opdracht.get("alfabetisch"):
-        sortedList = sorted(torens, key=lambda i: i['name'],reverse = not is_ascending)
+        sortedList = sorted(torens, key=lambda i: i['name'].lower(),reverse = not is_ascending)
     if opdracht.get("hoogte"):
         sortedList = sorted(torens, key=lambda i: i['height'],reverse = not is_ascending)
     if opdracht.get("bouwjaar"):
