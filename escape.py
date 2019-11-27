@@ -6,13 +6,12 @@ import escape_vullen_torens as torens
 import escape_bellen_specialist as bellen
 import escape_start as start
 
-teamnaam = "Team Triple R"
-
 def escape_totaal ():
     # Init het spel
-    start.start_escape(teamnaam)
+    start.start_escape()
     # Bereken de code die op de tablet getoond wordt
     tabletcode = tablet.BerekenCodeopTablet()
+    #print ("Tabletcode: ", tabletcode)
     # Open met deze code de boekenkast
     bkcode = bk.openboekenkast(tabletcode)
     # Vul nu de torens op de juiste volgorde in
@@ -24,10 +23,14 @@ def escape_totaal ():
     escapecode = bellen.bel_specialistV2(torencode, toollijstTorens)
     # En nu escapen door een delete aan te roepen
     resp = commons.deleteAPIresource("verwijderslot", escapecode)
-    print(f'Delete heeft geleid tot: ', resp.status_code, resp.text)
+    #print(f'Delete heeft geleid tot: ', resp.status_code, resp.text)
+    return resp.status_code == 200
+
 
 if __name__ == '__main__':
-    escape_totaal()
+    for x in range(10):
+        escaped = escape_totaal()
+        print ("Try: ", x,  "escaped: ", escaped)
 
 
 
