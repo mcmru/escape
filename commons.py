@@ -1,7 +1,16 @@
 import requests
+import logging
+import http.client as http_client
 
 baseURL = "http://otagrnap357.duo.ota/"
 apiKey = "ddc3f655-79a4-4f7e-b5cf-031914db0eea"
+
+http_client.HTTPConnection.debuglevel = 1
+logging.basicConfig()
+logging.getLogger().setLevel(logging.DEBUG)
+requests_log = logging.getLogger("requests.packages.urllib3")
+requests_log.setLevel(logging.DEBUG)
+requests_log.propagate = True
 
 def getapiKey ():
     return apiKey
@@ -53,4 +62,3 @@ def deleteAPIresource(resource, escapecode):
     response = requests.delete(url, headers=headers)
     print("Delete API op: ", resource, "met status: ", response.status_code)
     return response
-
