@@ -3,6 +3,8 @@ import commons
 import requests
 
 def start_escape():
+    commons.initSession()
+
     params = {"gebruikersnaam" : "Triple R",
               "api-key": commons.getapiKey()
               }

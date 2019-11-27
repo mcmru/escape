@@ -12,13 +12,11 @@ requests_log = logging.getLogger("requests.packages.urllib3")
 requests_log.setLevel(logging.DEBUG)
 requests_log.propagate = True
 
-sess = requests.Session()
-adapter = requests.adapters.HTTPAdapter(pool_connections=1, pool_maxsize=1)
-sess.mount('http://', adapter)
-
-
 def getapiKey ():
     return apiKey
+
+def initSession():
+    session = requests.session()
 
 def getAPIresource(resource, params = None, secretcodename = None, secretcodesolution = None):
     # URL
