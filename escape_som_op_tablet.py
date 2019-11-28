@@ -7,11 +7,9 @@ def BerekenCodeopTablet():
     return oplossing1ComputeEntryCode(oplossing1getassignment())
 
 def oplossing1getassignment():
+
     solution = commons.getAPIresource(resource='rekensom')
-    if solution.status_code:
-        return json.loads(solution.text)
-    else:
-        raise Exception("API not accessible")
+    return json.loads(solution.text)
 
 
 def oplossing1ComputeEntryCode(opdracht):
@@ -39,6 +37,6 @@ def oplossing1ComputeEntryCode(opdracht):
             print("De entrycode voor de boekenkast is gekraakt")
             return (operate.get(operator)())
 
-    return -1  # Geen opdracht gevonden
+    raise ("Geen rekenopdracht gevonden")
 
 

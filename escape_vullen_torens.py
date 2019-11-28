@@ -34,24 +34,16 @@ def convert2antwoordstring(sortedList):
 
 def vul_torens(oplossingboekenkast):
     response = commons.getAPIresource(resource='torens')
-    if not response.status_code:
-        raise Exception("Torens get error")
-    else:
-        opdracht = json.loads(response.text)
+    opdracht = json.loads(response.text)
 
     # Antwoord is nu zoiets als: {"torens": {"typeSortering": "Oplopend", "alfabetisch": false, "hoogte": false, "bouwjaar": true}}
 
     antwoord = convert2antwoordstring(sortlist(opdracht))
-    #print ("Toren antwoord = ", antwoord)
+
     response = commons.PostAPIresource(resource='torens',
                                        secretcodename='Oplossing1',
                                        secretcodesolution=oplossingboekenkast,
                                        body=json.dumps(antwoord))
-    if response.status_code:
-        # De response header bevat de code van Oplossing2. Ook de response.text moet mee terug als dictionary
-        print("Torens opgelost")
-        return response.headers['Oplossing2'], json.loads(response.text)
-    else:
-        raise Exception("torens post error")
+    return response.headers['Oplossing2'], json.loads(response.text)
 
 

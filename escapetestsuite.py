@@ -29,7 +29,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 
-
+    #ff printen. assertEquals was teveel moeite (not good, I know)
     def test_torensvolgorde(self):
         test = json.loads("{\"torens\": {\"typeSortering\": \"Oplopend\", \"alfabetisch\": false, \"hoogte\": true, \"bouwjaar\": false}}")
         print (torens.convert2antwoordstring(torens.sortlist(test)))

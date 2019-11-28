@@ -1,20 +1,10 @@
 import requests
-import logging
-import http.client as http_client
-import os
 
 baseURL = "http://otagrnap357.duo.ota/"
 apiKey = "ddc3f655-79a4-4f7e-b5cf-031914db0eea"
 
-
-# Geen proxy !
-os.environ['NO_PROXY']= baseURL
-
 def getapiKey ():
     return apiKey
-
-def initSession():
-    s = requests.session().close()
 
 def getAPIresource(resource, params = None, secretcodename = None, secretcodesolution = None):
     # URL
@@ -22,6 +12,7 @@ def getAPIresource(resource, params = None, secretcodename = None, secretcodesol
 
     # Headers
     headers = {"api-key": apiKey}
+    # no-caching voorkomt een 406 bij de escape
     headers["Cache-Control"] = "no-cache"
     headers["Pragma"] = "no-cache"
 
@@ -32,7 +23,9 @@ def getAPIresource(resource, params = None, secretcodename = None, secretcodesol
     response = requests.get(url,
                             params=params,
                             headers=headers)
-    #print("Get API op: ", resource, "met status: ", response.status_code, "en response body: ", response.text)
+    if response.status_code != 200:
+        raise ("getAPI resource ging fout:", url, response.status_code)
+
     return response
 
 def PostAPIresource(resource, body, params = None, secretcodename = None, secretcodesolution = None):
@@ -48,24 +41,26 @@ def PostAPIresource(resource, body, params = None, secretcodename = None, secret
     headers['content-type'] = 'application/json'
 
     # Send request
-
     response = requests.post(url,
                              data=body,
                              params=params,
                              headers=headers)
-    #print("Post API op: ", resource, "met status: ", response.status_code, "en response body: ", response.text)
+
+    if response.status_code != 200:
+        raise ("postAPI resource ging fout:", url, response.status_code)
+
     return response
 
 def deleteAPIresource(resource, escapecode):
     # URL
     url = baseURL + resource + "/" + str(escapecode)
-    print("Delete op URL:", url)
 
     # Headers
     headers = {"api-key": apiKey}
 
-    print("delete me headers:", headers)
     # Send request
     response = requests.delete(url, headers=headers)
-    print("Delete API op: ", resource, "met status: ", response.status_code, "En headers: ", response.headers, "met inhoud: ", response.text)
+    if response.status_code != 200:
+        raise ("deleteAPI resource ging fout:", url, response.status_code)
+
     return response
