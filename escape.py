@@ -28,7 +28,7 @@ def escape_totaal ():
 
 
 if __name__ == '__main__':
-    for x in range(2):
+    for x in range(5):
         escaped = escape_totaal()
         print ("Try: ", x,  "escaped: ", escaped)
 

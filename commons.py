@@ -6,12 +6,6 @@ import os
 baseURL = "http://otagrnap357.duo.ota/"
 apiKey = "ddc3f655-79a4-4f7e-b5cf-031914db0eea"
 
-http_client.HTTPConnection.debuglevel = 1
-logging.basicConfig()
-logging.getLogger().setLevel(logging.DEBUG)
-requests_log = logging.getLogger("requests.packages.urllib3")
-requests_log.setLevel(logging.DEBUG)
-requests_log.propagate = True
 
 # Geen proxy !
 os.environ['NO_PROXY']= baseURL
@@ -20,7 +14,7 @@ def getapiKey ():
     return apiKey
 
 def initSession():
-    session = requests.session()
+    s = requests.session().close()
 
 def getAPIresource(resource, params = None, secretcodename = None, secretcodesolution = None):
     # URL
@@ -28,6 +22,9 @@ def getAPIresource(resource, params = None, secretcodename = None, secretcodesol
 
     # Headers
     headers = {"api-key": apiKey}
+    headers["Cache-Control"] = "no-cache"
+    headers["Pragma"] = "no-cache"
+
     if secretcodename:
         headers[secretcodename] = secretcodesolution
 
@@ -44,6 +41,7 @@ def PostAPIresource(resource, body, params = None, secretcodename = None, secret
 
     # Headers
     headers = {"api-key": apiKey}
+
     if secretcodename:
         headers[secretcodename] = secretcodesolution
 
@@ -65,6 +63,7 @@ def deleteAPIresource(resource, escapecode):
 
     # Headers
     headers = {"api-key": apiKey}
+
     print("delete me headers:", headers)
     # Send request
     response = requests.delete(url, headers=headers)
