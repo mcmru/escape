@@ -23,13 +23,14 @@ def escape_totaal ():
     escapecode = bellen.bel_specialist(torencode, toollijstTorens)
 
     # En nu escapen door een delete aan te roepen
-    commons.deleteAPIresource("verwijderslot", escapecode)
+    response = commons.deleteAPIresource("verwijderslot", escapecode)
+    print(response.text)
 
 if __name__ == '__main__':
     # 10 keer achter alkaar proberen te escapen
     for x in range(10):
         escaped = escape_totaal()
-        print ("Try: ", x,  "escaped: ", escaped)
+
 
 
 
