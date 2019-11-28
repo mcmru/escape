@@ -1,6 +1,7 @@
 import requests
 import logging
 import http.client as http_client
+import os
 
 baseURL = "http://otagrnap357.duo.ota/"
 apiKey = "ddc3f655-79a4-4f7e-b5cf-031914db0eea"
@@ -11,6 +12,9 @@ logging.getLogger().setLevel(logging.DEBUG)
 requests_log = logging.getLogger("requests.packages.urllib3")
 requests_log.setLevel(logging.DEBUG)
 requests_log.propagate = True
+
+# Geen proxy !
+os.environ['NO_PROXY']= baseURL
 
 def getapiKey ():
     return apiKey
